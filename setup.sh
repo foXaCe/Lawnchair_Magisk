@@ -86,21 +86,18 @@ info_print() {
 init_main() {
   sdk_version=$(getprop ro.build.version.sdk)
 
-  if [ $sdk_version -eq 32 ]; then
-    rm -rf "$MODPATH/system/priv-app/Lawnchair/a13qpr.apk"
-    rm -rf "$MODPATH/system/priv-app/Lawnchair/a13qpr2.apk"
-    rm -rf "$MODPATH/system/product/overlay/QuickSwitchOverlay/QuickSwitchOverlay13.apk"
+  if [ $sdk_version -eq 33 ]; then
+    rm -rf "$MODPATH/system/priv-app/Lawnchair/Lawnchair 14 Dev (#253) market debug.apk"
     rm -rf "$MODPATH/system/etc/permissions/privapp-permissions-app.lawnchair.debug.xml"
     rm -rf "$MODPATH/system/etc/sysconfig/app.lawnchair.debug-hiddenapi-package-whitelist.xml"
     ui_print "The installation process of Lawnchair Magisk has been started!!"
 
-  elif [ $sdk_version -eq 33 ]; then
-    rm -rf "$MODPATH/system/priv-app/Lawnchair/a12.apk"
-    rm -rf "$MODPATH/system/product/overlay/QuickSwitchOverlay/QuickSwitchOverlay12.apk"
+  elif [ $sdk_version -eq 34 ]; then
+    rm -rf "$MODPATH/system/priv-app/Lawnchair/Lawnchair 14 Dev (#253) market debug.apk"
     rm -rf "$MODPATH/system/etc/permissions/privapp-permissions-app.lawnchair.xml"
     rm -rf "$MODPATH/system/etc/sysconfig/app.lawnchair-hiddenapi-package-whitelist.xml"
     ui_print ""
-    ui_print "[*] Select your Android 13 version?"
+    ui_print "[*] Select your Android 14 version?"
     ui_print "[*] Press volume up to switch to another choice"
     ui_print "[*] Press volume down to continue with that choice"
     ui_print ""
@@ -108,9 +105,9 @@ init_main() {
     sleep 0.5
 
     ui_print "--------------------------------"
-    ui_print "[1] Android 13/13 QPR(February security patch or below)"
+    ui_print "[1] Android 13/14 QPR(February security patch or below)"
     ui_print "--------------------------------"
-    ui_print "[2] Android 13 QPR2(March security patch or above)"
+    ui_print "[2] Android 14"
     ui_print "--------------------------------"
 
     ui_print ""
@@ -124,18 +121,18 @@ init_main() {
     done
 
     case "$SM" in
-    "1") FCTEXTAD1="Android 13/13 QPR" ;;
-    "2") FCTEXTAD1="Android 13 QPR2" ;;
+    "1") FCTEXTAD1="Android 13/14" ;;
+    "2") FCTEXTAD1="Android 14" ;;
     esac
 
     ui_print "[*] Selected: $FCTEXTAD1"
     ui_print ""
 
     if [[ "$FCTEXTAD1" == "Android 13/13 QPR" ]]; then
-      rm -rf "$MODPATH/system/priv-app/Lawnchair/a13qpr2.apk"
+      rm -rf "$MODPATH/system/priv-app/Lawnchair/Lawnchair 14 Dev (#253) market debug.apk"
 
     elif [[ "$FCTEXTAD1" == "Android 13 QPR2" ]]; then
-      rm -rf "$MODPATH/system/priv-app/Lawnchair/a13qpr.apk"
+      rm -rf "$MODPATH/system/priv-app/Lawnchair/Lawnchair 14 Dev (#253) market debug.apk"
     fi
   fi
 
@@ -175,7 +172,6 @@ init_main() {
     :
 
   elif [[ "$FCTEXTAD1" == "No" ]]; then
-    rm -rf "$MODPATH/system/priv-app/Lawniconsbak"
     rm -rf "$MODPATH/system/priv-app/LawniconsManager"
     rm -rf "$MODPATH/system/etc/permissions/privapp-permissions-app.lawnchair.lawnicons.xml"
     rm -rf "$MODPATH/system/etc/permissions/privapp-permissions-com.saitama.liarach.lawnmagisk.xml"
@@ -196,10 +192,6 @@ init_main() {
   ui_print " --- Notes --- "
   ui_print ""
   ui_print "[*] Reboot is required"
-  ui_print ""
-  ui_print "[*] Report issues to @fileschat on Telegram"
-  ui_print ""
-  ui_print "[*] You can find me at @saitama_96 on Telegram for direct support"
 
   sleep 2
 
